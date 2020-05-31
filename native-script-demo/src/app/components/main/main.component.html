@@ -1,0 +1,16 @@
+<FlexboxLayout flexDirection="column" justifyContent="flex-end" alignItems="stretch" marginLeft="8" marginRight="8">
+    <ns-header flexGrow="1"></ns-header>
+    <GridLayout flexGrow="2" height="80" minHeight="80" maxHeight="80">
+        <Label text="Hi Sam, here are your todo's for today!" textWrap="true" fontSize="32" fontWeight="normal"></Label>
+    </GridLayout>
+    <ScrollView flexGrow="8" orientation="vertical" scrollBarIndicatorVisible="false">
+        <StackLayout>
+            <Label *ngFor="let todo of todos; index as i" [text]="i+1 + ': ' + todo.name" fontSize="20"
+                   (tap)="toggleDone(todo.name)" [textDecoration]="todo.done ? 'line-through' : 'none'"></Label>
+        </StackLayout>
+    </ScrollView>
+    <GridLayout flexGrow="1" height="80" maxHeight="80" minHeight="80">
+        <TextField [(ngModel)]="todo" hint="Todo" returnKeyType="done" fontSize="20" border="0"
+                   (returnPress)="addTodo()"></TextField>
+    </GridLayout>
+</FlexboxLayout>
