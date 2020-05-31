@@ -1,4 +1,6 @@
 <StackLayout marginLeft="8" marginRight="8">
     <ns-header></ns-header>
-    <Label text="Menu"></Label>
+    <TextField [(ngModel)]="name" hint="Name" returnKeyType="done" fontSize="20" border="0"></TextField>
+    <Button text="save name" (tap)="saveName()" textTransform="uppercase" borderColor="black" borderRadius="8"
+            fontWeight="bold"></Button>
 </StackLayout>

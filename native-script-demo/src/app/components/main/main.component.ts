@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {TodoService} from "~/app/services/todo.service";
+import {SECURE_STORAGE_KEY_NAME, SecureStorageService, TodoService} from "~/app/services/public_api";
 import {IToDo} from "~/app/interfaces/todo.interface";
 
 @Component({
@@ -10,14 +10,17 @@ export class MainComponent implements OnInit {
 
     todo: string;
     todos: IToDo[];
+    name: string;
 
-    constructor(private todoService: TodoService) {
+    constructor(private todoService: TodoService,
+                private secureStorageService: SecureStorageService) {
         this.todos = [];
+        this.name = '';
     }
 
     ngOnInit(): void {
-        this.todoService.getTodos$()
-            .subscribe(todos => this.todos = todos);
+        this.todoService.getTodos$().subscribe(todos => this.todos = todos);
+        this.name = this.secureStorageService.getValue(SECURE_STORAGE_KEY_NAME);
     }
 
     addTodo(): void {
@@ -27,6 +30,10 @@ export class MainComponent implements OnInit {
 
     toggleDone(todo: string): void {
         this.todoService.toggleDone(todo);
+    }
+
+    getTitle(): string {
+        return `Hi ${ this.name ? this.name : '' }, here are your todo\'s for today!`;
     }
 
 }

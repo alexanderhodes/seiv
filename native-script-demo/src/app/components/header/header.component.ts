@@ -12,7 +12,7 @@ export class HeaderComponent {
     constructor(private router: Router) {}
 
     toggleOpen(): void {
-        this.router.navigate([this.isOpen ? 'menu' : ''], { skipLocationChange: true }).then();
+        this.router.navigate([this.isOpen ? '' : 'menu'], { skipLocationChange: true }).then();
         this.isOpen = !this.isOpen;
     }
 
