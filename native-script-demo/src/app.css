@@ -24,6 +24,29 @@ The following CSS rule changes the font size of all Buttons that have the
     font-family: "Font Awesome 5 Free Solid, FontAwesome";
 }
 
-Button.-primary {
-    font-size: 18;
+TextField {
+    border-width: 2;
+    border-color: black;
+    padding: 4;
+    padding-left: 8;
+    font-size: 20;
 }
+
+Button {
+    border-width: 2;
+    border-color: black;
+    padding: 4;
+    padding-left: 8;
+    background: black;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20;
+}
+
+.title {
+    fontSize: 32;
+    fontWeight: normal;
+    text-wrap: 'true';
+}
+
