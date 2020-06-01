@@ -8,6 +8,8 @@ import {SECURE_STORAGE_KEY_NAME, SecureStorageService} from "~/app/services/secu
 export class MenuComponent implements OnInit {
 
     name: string;
+    title: string = 'Menu';
+    target: string = '';
 
     constructor(private secureStorageService: SecureStorageService) {
         this.name = '';

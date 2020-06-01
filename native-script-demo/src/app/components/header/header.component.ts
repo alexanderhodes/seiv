@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {Router} from "@angular/router";
 
 @Component({
@@ -7,13 +7,17 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent {
 
-    isOpen: boolean = false;
+    @Input()
+    open: boolean;
+    @Input()
+    title: string;
+    @Input()
+    target: string;
 
     constructor(private router: Router) {}
 
     toggleOpen(): void {
-        this.router.navigate([this.isOpen ? '' : 'menu'], { skipLocationChange: true }).then();
-        this.isOpen = !this.isOpen;
+        this.router.navigate([this.target], { skipLocationChange: true }).then();
     }
 
 }

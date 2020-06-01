@@ -11,6 +11,8 @@ export class MainComponent implements OnInit {
     todo: string;
     todos: IToDo[];
     name: string;
+    title: string = 'ToDos';
+    target: string = 'menu';
 
     constructor(private todoService: TodoService,
                 private secureStorageService: SecureStorageService) {
