@@ -6,6 +6,7 @@ import {NativeScriptFormsModule} from "nativescript-angular/forms";
 import {CommonModule} from "@angular/common";
 import {HeaderComponent, MainComponent, MenuComponent} from "~/app/components";
 import {ToastService} from "~/app/services";
+import {TodoMapper} from "~/app/interfaces";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
 // import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
@@ -27,7 +28,8 @@ import {ToastService} from "~/app/services";
         MenuComponent
     ],
     providers: [
-        ToastService
+        ToastService,
+        TodoMapper
     ],
     schemas: [
         NO_ERRORS_SCHEMA

@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {SECURE_STORAGE_KEY_NAME, SecureStorageService} from "~/app/services";
+import {DatabaseService, SECURE_STORAGE_KEY_NAME, SecureStorageService, ToastService} from "~/app/services";
 
 @Component({
     selector: "ns-menu",
@@ -11,7 +11,9 @@ export class MenuComponent implements OnInit {
     title: string = 'Menu';
     target: string = '';
 
-    constructor(private secureStorageService: SecureStorageService) {
+    constructor(private secureStorageService: SecureStorageService,
+                private toastService: ToastService,
+                private databaseService: DatabaseService) {
         this.name = '';
     }
 
@@ -21,5 +23,12 @@ export class MenuComponent implements OnInit {
 
     saveName(): void {
         this.secureStorageService.setValue(SECURE_STORAGE_KEY_NAME, this.name);
+    }
+
+    deleteToDos(): void {
+        this.databaseService.deleteAllToDos().subscribe(success => {
+            const text = success ? 'deleted all todos' : 'deletion failed';
+            this.toastService.show(text);
+        });
     }
 }

@@ -8,34 +8,53 @@ import {SECURE_STORAGE_KEY_NAME, SecureStorageService, TodoService} from "~/app/
 })
 export class MainComponent implements OnInit {
 
-    todo: string;
-    todos: IToDo[];
+    text: string;
+    toDos: IToDo[];
     name: string;
     title: string = 'ToDo\'s';
     target: string = 'menu';
 
     constructor(private todoService: TodoService,
                 private secureStorageService: SecureStorageService) {
-        this.todos = [];
+        this.toDos = [];
         this.name = '';
     }
 
     ngOnInit(): void {
-        this.todoService.getTodos$().subscribe(todos => this.todos = todos);
         this.name = this.secureStorageService.getValue(SECURE_STORAGE_KEY_NAME);
+        this.updateTodoList();
     }
 
     addTodo(): void {
-        this.todoService.addTodo(this.todo);
-        this.todo = '';
+        if (this.text && this.text.length) {
+            this.todoService.addTodo(this.text)
+                .subscribe(success => {
+                    if (success) {
+                        this.updateTodoList();
+                    }
+                });
+            this.text = '';
+        }
     }
 
-    toggleDone(todo: string): void {
-        this.todoService.toggleDone(todo);
+    toggleDone(todo: IToDo): void {
+        this.todoService.toggleDone(todo)
+            .subscribe(success => {
+                if (success) {
+                    this.updateTodoList();
+                }
+            });
     }
 
     getTitle(): string {
         return `Hi ${ this.name ? this.name : '' }, here are your todo\'s for today!`;
+    }
+
+    private updateTodoList(): void {
+        this.todoService.getToDos$()
+            .subscribe((toDos: IToDo[]) => {
+                this.toDos = toDos;
+            });
     }
 
 }

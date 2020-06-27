@@ -90,7 +90,7 @@ module.exports = env => {
     const areCoreModulesExternal = Array.isArray(env.externals) && env.externals.some(e => e.indexOf("tns-core-modules") > -1);
     if (platform === "ios" && !areCoreModulesExternal) {
         entries["tns_modules/tns-core-modules/inspector_modules"] = "inspector_modules";
-    };
+    }
 
     const ngCompilerTransformers = [];
     const additionalLazyModuleResources = [];
@@ -138,6 +138,11 @@ module.exports = env => {
     const noEmitOnErrorFromTSConfig = getNoEmitOnErrorFromTSConfig(join(projectRoot, tsConfigName));
 
     nsWebpack.processAppComponents(appComponents, platform);
+
+    externals.push('nativescript-sqlite-commercial');
+    externals.push('nativescript-sqlite-encrypted');
+    externals.push('nativescript-sqlite-sync');
+
     const config = {
         mode: production ? "production" : "development",
         context: appFullPath,
