@@ -23,9 +23,10 @@
     "@nativescript/theme": "~2.3.3",
     "nativescript-angular": "~8.21.0",
     "nativescript-secure-storage": "^2.6.0",
+    "nativescript-toasty": "^3.0.0-alpha.2",
     "reflect-metadata": "~0.1.12",
     "rxjs": "^6.4.0",
-    "tns-core-modules": "~6.5.0",
+    "tns-core-modules": "^6.5.8",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

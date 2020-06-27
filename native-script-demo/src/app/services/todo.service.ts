@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Observable, ReplaySubject, Subject} from "rxjs";
-import {IToDo} from "~/app/interfaces/todo.interface";
+import {IToDo} from "~/app/interfaces";
 
 @Injectable({
     providedIn: "root"
@@ -8,7 +8,7 @@ import {IToDo} from "~/app/interfaces/todo.interface";
 export class TodoService {
 
     private _todos$: Subject<IToDo[]>;
-    private _todos: IToDo[];
+    private readonly _todos: IToDo[];
 
     constructor() {
         this._todos$ = new ReplaySubject(1);

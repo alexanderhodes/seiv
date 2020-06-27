@@ -45,8 +45,8 @@ Button {
 }
 
 .title {
-    fontSize: 32;
-    fontWeight: normal;
-    text-wrap: 'true';
+    font-size: 32;
+    font-weight: normal;
+    text-wrap: true;
 }
 

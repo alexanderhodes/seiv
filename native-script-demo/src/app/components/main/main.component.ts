@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
-import {SECURE_STORAGE_KEY_NAME, SecureStorageService, TodoService} from "~/app/services/public_api";
-import {IToDo} from "~/app/interfaces/todo.interface";
+import {IToDo} from "~/app/interfaces";
+import {SECURE_STORAGE_KEY_NAME, SecureStorageService, TodoService} from "~/app/services";
 
 @Component({
     selector: "ns-main",
@@ -11,7 +11,7 @@ export class MainComponent implements OnInit {
     todo: string;
     todos: IToDo[];
     name: string;
-    title: string = 'ToDos';
+    title: string = 'ToDo\'s';
     target: string = 'menu';
 
     constructor(private todoService: TodoService,

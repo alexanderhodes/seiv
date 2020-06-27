@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {SECURE_STORAGE_KEY_NAME, SecureStorageService} from "~/app/services/secure-storage.service";
+import {SECURE_STORAGE_KEY_NAME, SecureStorageService} from "~/app/services";
 
 @Component({
     selector: "ns-menu",

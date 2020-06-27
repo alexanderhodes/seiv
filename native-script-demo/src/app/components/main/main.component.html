@@ -1,8 +1,8 @@
 <FlexboxLayout flexDirection="column" justifyContent="flex-end" alignItems="stretch" marginLeft="8" marginRight="8">
     <ns-header flexGrow="1" [open]="false" [title]="title" [target]="target"></ns-header>
-    <GridLayout flexGrow="2" height="80" minHeight="80" maxHeight="80" columns="auto, *" rows="auto, auto">
+    <GridLayout flexGrow="3" height="80" minHeight="80" maxHeight="80" columns="auto, *" rows="auto, auto">
         <Label row="0" col="0" text="Hi " class="title"></Label>
-        <Label row="0" col="1" [text]="name + ', '" *ngIf="name" class="title" fontWeight="bold"></Label>
+        <Label row="0" col="1" [text]="name + ', '" *ngIf="name" class="title"></Label>
         <Label row="1" col="0" colSpan="2" text="here are your todo's for today!" class="title"></Label>
     </GridLayout>
     <ScrollView flexGrow="8" orientation="vertical" scrollBarIndicatorVisible="false">
