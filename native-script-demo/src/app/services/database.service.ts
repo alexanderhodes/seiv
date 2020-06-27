@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
-import {IToDo, TodoMapper} from "~/app/interfaces";
+import {IToDo} from "~/app/interfaces";
 import {Observable, ReplaySubject} from "rxjs";
+import {TodoMapper} from "~/app/mappers";
 const Sqlite = require('nativescript-sqlite');
 
 const createToDoTableStatement: string

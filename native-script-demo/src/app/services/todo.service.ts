@@ -1,7 +1,8 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import {IToDo, TodoMapper} from "~/app/interfaces";
+import {IToDo} from "~/app/interfaces";
 import {DatabaseService} from "~/app/services/database.service";
+import {TodoMapper} from "~/app/mappers";
 
 @Injectable({
     providedIn: "root"
